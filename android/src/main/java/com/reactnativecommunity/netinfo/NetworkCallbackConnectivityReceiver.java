@@ -85,7 +85,7 @@ class NetworkCallbackConnectivityReceiver extends ConnectivityReceiver {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             isInternetSuspended = !mNetworkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_SUSPENDED);
         } else {
-            if (mNetwork != null) {
+            if (mNetwork != null && networkInfo != null) {
                 NetworkInfo.DetailedState detailedConnectionState = networkInfo.getDetailedState();
                 if (!detailedConnectionState.equals(NetworkInfo.DetailedState.CONNECTED)) {
                     isInternetSuspended = true;
